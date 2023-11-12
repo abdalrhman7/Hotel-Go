@@ -24,7 +24,7 @@ Bloc pattern is implemented for state management:
 - **Events:** Trigger actions or events that can lead to a change in the application's state.
 - **States:** Represent the different states the application can be in, ensuring a clear and predictable flow of data.
 
-## GetIt Singleton Design Pattern
+## GetIt
 
 GetIt is used for dependency injection:
 
