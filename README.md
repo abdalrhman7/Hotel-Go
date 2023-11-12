@@ -47,3 +47,5 @@ Bloc pattern is implemented for state management:
 Dio library is used for making network requests:
 
 - **Efficient Network Communication:** Dio efficiently handles communication with the API, ensuring timely and accurate data retrieval.
+
+https://github.com/abdalrhman7/Hotel-Go/assets/119235456/a2adb467-e2d4-462c-81a7-be1469215e3b
