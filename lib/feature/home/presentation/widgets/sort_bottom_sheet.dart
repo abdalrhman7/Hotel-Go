@@ -60,7 +60,7 @@ class SortBottomSheet extends StatelessWidget {
   Text buildText(String text) {
     return Text(
       text,
-      style: TextStyles.font16W500,
+      style: TextStyles.font16ExtraGray,
     );
   }
 

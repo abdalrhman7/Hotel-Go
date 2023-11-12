@@ -11,16 +11,43 @@ class HotelCubit extends Cubit<HotelState> {
 
   final HomeRepo homeRepo;
 
+  int priceFilter = 540;
+  bool isFilter = false;
+  List<HotelModel> hotels = [];
+
   void getHotels() async {
     emit(GetHotelLoading());
+    homeRepo.getHotels().then(
+      (value) {
+        hotels.addAll(value);
+        emit(GetHotelSuccess(hotels));
+      },
+    ).catchError(
+      (error) {
+        emit(GetHotelError(error.toString()));
+      },
+    );
+  }
 
-    homeRepo
-        .getHotels()
-        .then(
-          (value) => emit(GetHotelSuccess(value)),
-        )
-        .catchError(
-          (error) => emit(GetHotelError(error.toString())),
-        );
+  void getFiltersHotels() async {
+    List<HotelModel> filterHotels = [];
+    emit(GetHotelLoading());
+    homeRepo.getHotels().then(
+      (value) {
+        isFilter = true;
+        filterHotels.addAll(value.where((element) => element.price! < priceFilter));
+        emit(GetFilterHotelSuccess(filterHotels));
+      },
+    ).catchError(
+      (error) {
+        emit(GetHotelError(error.toString()));
+      },
+    );
+  }
+
+
+  void cancelFilter() {
+    isFilter = false;
+    emit(GetHotelSuccess(hotels));
   }
 }

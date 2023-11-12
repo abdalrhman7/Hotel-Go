@@ -25,7 +25,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initSlidingAnimation()  {
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds:1500),
+      duration: const Duration(milliseconds: 800),
+
     );
     slidingAnimation =
         Tween<Offset>(begin: const Offset(0, 8), end: Offset.zero)
@@ -38,7 +39,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHome() {
     Future.delayed(
-      const Duration(milliseconds:2000),
+      const Duration(milliseconds:1200),
           () {
         Navigator.of(context).pushNamed(AppRoutes.homeScreen);
       },

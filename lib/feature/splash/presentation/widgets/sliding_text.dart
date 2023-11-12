@@ -20,7 +20,7 @@ class SlidingText extends StatelessWidget {
             child:  Text(
               'Hotel Go',
               textAlign: TextAlign.center,
-              style: TextStyles.font28Bold
+              style: TextStyles.font28BlueBold,
             ),
           );
         });

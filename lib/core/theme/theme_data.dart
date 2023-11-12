@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_go/core/theme/app_color.dart';
 
 
 ThemeData themeData(BuildContext context) {
   return ThemeData(
-    scaffoldBackgroundColor: const Color(0xFFE5E5E5),
+    scaffoldBackgroundColor: AppColor.offWhiteColor,
     primaryColor: Colors.redAccent,
     appBarTheme: const AppBarTheme(
       centerTitle: true,

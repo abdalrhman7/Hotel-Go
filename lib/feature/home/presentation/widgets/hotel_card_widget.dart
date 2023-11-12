@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hotel_go/core/theme/app_color.dart';
 import 'package:hotel_go/feature/home/data/model/hotel_model.dart';
 import 'package:hotel_go/feature/home/presentation/widgets/price_widget.dart';
 import 'package:hotel_go/feature/home/presentation/widgets/rating_and_distance_widget.dart';

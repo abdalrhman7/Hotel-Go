@@ -15,6 +15,7 @@ class CreateAndSetupDio{
     dio.options.baseUrl = ApiConstants.baseUrl;
 
     dio.interceptors.add(LogInterceptor(
+      //responseBody: true,
       error: true,
       requestHeader: false,
       responseHeader: false,

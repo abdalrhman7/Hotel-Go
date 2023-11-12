@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hotel_go/feature/home/presentation/widgets/sort_by_bottom_sheet.dart';
+import 'package:hotel_go/feature/home/business_logic/hotel_cubit.dart';
+import 'package:hotel_go/feature/home/presentation/widgets/sort_bottom_sheet.dart';
 
 import '../../../../core/theme/app_color.dart';
-import '../../../../core/theme/text_style.dart';
 import 'filter_bottom_sheet.dart';
 
 class FilterButtons extends StatelessWidget {
@@ -13,6 +14,7 @@ class FilterButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = BlocProvider.of<HotelCubit>(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.w),
       child: Container(
@@ -36,14 +38,18 @@ class FilterButtons extends StatelessWidget {
                   isScrollControlled: true,
                   context: context,
                   builder: (_) {
-                    return const FilterBottomSheet();
+                    return BlocProvider.value(
+                      value: cubit,
+                      child: const FilterBottomSheet(),
+                    );
                   },
                 );
               },
               icon: const Icon(Icons.filter_alt_outlined),
-              label:  const Text('Filters'),
+              label: const Text('Filters'),
               style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(AppColor.blueColor),              ),
+                foregroundColor: MaterialStateProperty.all<Color>(
+                    AppColor.blueColor),),
             ),
             TextButton.icon(
               onPressed: () {
@@ -60,7 +66,8 @@ class FilterButtons extends StatelessWidget {
               icon: const Icon(Icons.sort),
               label: const Text('Sort'),
               style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(AppColor.blueColor),
+                foregroundColor: MaterialStateProperty.all<Color>(
+                    AppColor.blueColor),
               ),
             ),
           ],

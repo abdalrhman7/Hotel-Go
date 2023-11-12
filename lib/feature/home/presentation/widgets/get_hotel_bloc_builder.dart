@@ -11,19 +11,31 @@ class GetHotelBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = BlocProvider.of<HotelCubit>(context);
     return BlocBuilder<HotelCubit, HotelState>(
       builder: (context, state) {
         if (state is GetHotelSuccess) {
           return ListView.builder(
             physics: const BouncingScrollPhysics(),
-            itemCount: state.hotels.length,
+            itemCount: cubit.hotels.length,
             itemBuilder: (context, index) {
               return HotelCardWidget(
-                hotel: state.hotels[index],
+                hotel: cubit.hotels[index],
               );
             },
           );
-        } else if (state is GetHotelError) {
+        }
+        else if (state is GetFilterHotelSuccess) {
+          return ListView.builder(
+            physics: const BouncingScrollPhysics(),
+            itemCount: state.filterHotels.length,
+            itemBuilder: (context, index) {
+              return HotelCardWidget(
+                hotel: state.filterHotels[index],
+              );
+            },
+          );
+        }else if (state is GetHotelError) {
           return Center(child: Text(state.errorMessage));
         } else if (state is GetHotelError) {
 

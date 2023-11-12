@@ -13,7 +13,7 @@ class SliderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliderTheme(
       data: SliderTheme.of(context).copyWith(
-        thumbColor: const Color(0xffFFFFFF),
+        thumbColor:  AppColor.brightWhiteColor,
         overlayColor: Colors.transparent,
         activeTrackColor:  AppColor.blueColor,
         thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 15),

@@ -13,6 +13,12 @@ class GetHotelSuccess extends HotelState {
   GetHotelSuccess(this.hotels);
 }
 
+class GetFilterHotelSuccess extends HotelState {
+  final List<HotelModel> filterHotels ;
+
+  GetFilterHotelSuccess(this.filterHotels);
+}
+
 class GetHotelError extends HotelState {
   final String errorMessage;
 
