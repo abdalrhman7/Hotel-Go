@@ -37,8 +37,6 @@ class GetHotelBlocBuilder extends StatelessWidget {
           );
         }else if (state is GetHotelError) {
           return Center(child: Text(state.errorMessage));
-        } else if (state is GetHotelError) {
-          return  Center(child: Text(state.errorMessage.toString()),);
         }
         else{
           return const CustomCircularProgressIndicator();
