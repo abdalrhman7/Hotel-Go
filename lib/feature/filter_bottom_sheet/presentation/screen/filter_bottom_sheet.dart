@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hotel_go/feature/filter_bottom_sheet/presentation/widget/rating_widget.dart';
 import 'package:hotel_go/feature/filter_bottom_sheet/presentation/widget/reset_filter_section.dart';
-import 'package:hotel_go/feature/filter_bottom_sheet/presentation/widget/slider_widget.dart';
 import '../../../../core/theme/app_color.dart';
 import '../../../../core/theme/text_style.dart';
 import '../../../../core/widgets/main_button.dart';
@@ -34,18 +33,18 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
         children: [
           const ResetFilterSection(),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 26.h),
+            padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 20.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 PricePerNightWidget(cubit: cubit),
-                SliderWidget(
+                PricePerNightWidget(
                   price: cubit.priceFilter,
                   onChanged: (value) {
                     setState(() {
                       cubit.priceFilter = value;
                     });
                   },
+                  cubit: cubit,
                 ),
                 SizedBox(height: 24.h),
                 buildHeadersText('rating'),
@@ -99,7 +98,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     )
                   ],
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 26.h),
                 MainButton(
                   onTap: () {
                     cubit.getFiltersHotels();
