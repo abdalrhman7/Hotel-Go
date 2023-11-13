@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_go/feature/splash/presentation/widgets/sliding_text.dart';
-
-import '../../../../core/app_route/router.dart';
+import '../../../../core/app_route/routes.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
