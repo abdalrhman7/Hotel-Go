@@ -2,13 +2,12 @@ import 'package:bloc/bloc.dart';
 import 'package:hotel_go/feature/home/data/repo/home_repo.dart';
 import 'package:meta/meta.dart';
 
-import '../data/model/hotel_model.dart';
+import '../../data/model/hotel_model.dart';
 
 part 'hotel_state.dart';
 
 class HotelCubit extends Cubit<HotelState> {
   HotelCubit(this.homeRepo) : super(HotelInitial());
-
   final HomeRepo homeRepo;
 
   int priceFilter = 540;
@@ -18,12 +17,12 @@ class HotelCubit extends Cubit<HotelState> {
   void getHotels() async {
     emit(GetHotelLoading());
     homeRepo.getHotels().then(
-      (value) {
+          (value) {
         hotels.addAll(value);
         emit(GetHotelSuccess(hotels));
       },
     ).catchError(
-      (error) {
+          (error) {
         emit(GetHotelError(error.toString()));
       },
     );
@@ -33,21 +32,23 @@ class HotelCubit extends Cubit<HotelState> {
     List<HotelModel> filterHotels = [];
     emit(GetHotelLoading());
     homeRepo.getHotels().then(
-      (value) {
+          (value) {
         isFilter = true;
-        filterHotels.addAll(value.where((element) => element.price! < priceFilter));
+        filterHotels
+            .addAll(value.where((element) => element.price! < priceFilter));
         emit(GetFilterHotelSuccess(filterHotels));
       },
     ).catchError(
-      (error) {
+          (error) {
         emit(GetHotelError(error.toString()));
       },
     );
   }
 
-
   void cancelFilter() {
     isFilter = false;
     emit(GetHotelSuccess(hotels));
   }
+
+
 }

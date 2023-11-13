@@ -5,7 +5,7 @@ import 'package:hotel_go/feature/home/data/wep_services/wep_services.dart';
 import 'core/app_route/router.dart';
 import 'core/theme/theme_data.dart';
 import 'feature/home/data/repo/home_repo.dart';
-import 'injection.dart';
+import 'core/DI/injection.dart';
 
 void main() {
 

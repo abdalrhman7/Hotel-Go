@@ -15,40 +15,67 @@ class HotelCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.w)),
-      margin: const EdgeInsets.all(10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-           HotelImageWidget(imgUrl: hotel.image!),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 18.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const RatingBarWidget(),
-                SizedBox(height: 6.h),
-                Text(
-                  hotel.name!,
-                  style: TextStyles.font20Bold,
+    return Stack(
+      children: [
+        Card(
+          elevation: 4,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.w)),
+          margin: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              HotelImageWidget(imgUrl: hotel.image!),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 18.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const RatingBarWidget(),
+                    SizedBox(height: 6.h),
+                    Text(
+                      hotel.name!,
+                      style: TextStyles.font20Bold,
+                    ),
+                    SizedBox(height: 6.h),
+                    RatingAndDistanceWidget(hotel: hotel),
+                  ],
                 ),
-                SizedBox(height: 6.h),
-                 RatingAndDistanceWidget(hotel:  hotel),
-              ],
+              ),
+              SizedBox(height: 4.h),
+              PriceWidget(hotel: hotel),
+              SizedBox(height: 6.h),
+              Padding(
+                padding: EdgeInsets.only(right: 32.w),
+                child: Text(
+                  'More price',
+                  style: TextStyles.font16Gray.copyWith(
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+              SizedBox(height: 10.h),
+            ],
+          ),
+        ),
+        Positioned(
+          top: 26,
+          right: 26,
+          child: Container(
+            height: 38.w,
+            width: 38.w,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: const Color.fromRGBO(128, 128, 128, 0.75),
+            ),
+            child: const Icon(
+              Icons.favorite_border,
+              color: Colors.white,
+              size: 30,
             ),
           ),
-          SizedBox(height: 4.h),
-           PriceWidget(hotel: hotel),
-          SizedBox(height: 6.h),
-          Padding(
-            padding:  EdgeInsets.only(right: 32.w),
-            child: Text('More price' , style: TextStyles.font16Gray.copyWith(decoration: TextDecoration.underline,), ),
-          ),
-          SizedBox(height: 10.h),
-        ],
-      ),
+        )
+      ],
     );
   }
 }

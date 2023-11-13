@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hotel_go/core/theme/app_color.dart';
 
-class BuildStarContainer extends StatelessWidget {
-  const BuildStarContainer({super.key, required this.numberOfStars});
+class StarsRatingWidget extends StatelessWidget {
+  const StarsRatingWidget({super.key, required this.numberOfStars});
 
   final int numberOfStars;
 
