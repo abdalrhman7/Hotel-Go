@@ -1,7 +1,4 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theme/text_style.dart';
@@ -9,12 +6,12 @@ import '../../../home/business_logic/hotel_cubit/hotel_cubit.dart';
 
 class PricePerNightWidget extends StatelessWidget {
   const PricePerNightWidget({
-    super.key,
+    super.key, required this.cubit,
   });
+   final HotelCubit cubit ;
 
   @override
   Widget build(BuildContext context) {
-    var cubit = BlocProvider.of<HotelCubit>(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

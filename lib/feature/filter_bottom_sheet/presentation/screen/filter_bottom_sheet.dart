@@ -38,7 +38,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const PricePerNightWidget(),
+                 PricePerNightWidget(cubit: cubit),
                 SliderWidget(
                   price: cubit.priceFilter,
                   onChanged: (value) {
