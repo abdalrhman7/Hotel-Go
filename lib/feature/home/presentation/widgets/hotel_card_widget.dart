@@ -62,16 +62,17 @@ class HotelCardWidget extends StatelessWidget {
           top: 26,
           right: 26,
           child: Container(
+            alignment: Alignment.center,
             height: 38.w,
             width: 38.w,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: const Color.fromRGBO(128, 128, 128, 0.75),
+              borderRadius: BorderRadius.circular(30),
+              color: const Color.fromRGBO(128, 128, 128, 0.7),
             ),
             child: const Icon(
               Icons.favorite_border,
               color: Colors.white,
-              size: 30,
+              size: 28,
             ),
           ),
         )

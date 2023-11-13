@@ -34,9 +34,12 @@ class HomeScreen extends StatelessWidget {
               const GetHotelBlocBuilder(),
               BlocBuilder<FilterButtonsVisibilityCubit, bool>(
                 builder: (context, showFilterButtons) {
-                  return showFilterButtons
-                      ? const FilterButtons()
-                      : const SizedBox.shrink();
+                  return AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 800),
+                    child: showFilterButtons
+                        ? const FilterButtons()
+                        : const SizedBox.shrink(),
+                  );
                 },
               ),
             ],
